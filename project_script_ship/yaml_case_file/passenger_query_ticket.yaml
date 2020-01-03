@@ -1,0 +1,74 @@
+# coding:utf-8
+# 3.13 查询旅客验票记录  passenger/ticket/checking/query
+
+-
+ casetitle: 能通过旅客姓名进行验票记录查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "1","condition":
+ {"passengerName": "testName1","verifyResult": "","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 能通过验票结果进行验票记录查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "1","condition":
+ {"passengerName": "","verifyResult": "0","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 能通过护照号进行验票记录查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "1","condition":
+ {"passengerName": "","verifyResult": "","passportId": "passportId1","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 能通过身份证号码进行验票记录查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "1","condition":
+ {"passengerName": "","verifyResult": "","passportId": "","idNumber": "500238199312134390","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 能通过查询时间进行查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "1","condition":
+ {"passengerName": "","verifyResult": "","passportId": "","idNumber": "","checkingTimeSt": "2019-07-08 00:00:00","checkingTimeEnd": "2019-07-08 17:09:20"}}
+ expect: 0
+-
+ casetitle: 验证能进行分页查询
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "2","pageSize": "2","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 验证reqId为空/空值，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"","pageIndex": "2","pageSize": "","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: -1
+-
+ casetitle: 验证pageInde为空/空值时，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "","pageSize": "1","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: 0
+-
+ casetitle: 验证pageSize为空/空值时，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": ""}}
+ expect: -1
+-
+ casetitle: 验证condition为空、空值，能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "","condition":
+ {}}
+ expect: -1
+-
+ casetitle: 验证checkingTimeSt格式错误时，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "xssssd","checkingTimeEnd": ""}}
+ expect: -1
+-
+ casetitle: 验证checkingTimeEnd格式错误时，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "","checkingTimeEnd": "xssssd"}}
+ expect: -1
+-
+ casetitle: 验证checkingTimeSt>checkingTimeEnd时，服务器能做出校验，查询验票信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","pageIndex": "1","pageSize": "","condition":
+ {"passengerName": "","verifyResult": "1","passportId": "","idNumber": "","checkingTimeSt": "20190706","checkingTimeEnd": "20190705"}}
+ expect: -1
+
+
+
+
+
+

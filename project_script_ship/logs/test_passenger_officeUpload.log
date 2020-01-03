@@ -1,0 +1,22 @@
+2019-07-11 09:58:19,172 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"datas 不能大于50"}
+2019-07-11 09:58:37,660 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"第0行 没有二维码信息"}
+2019-07-11 10:32:15,426 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 10:44:52,058 - root - INFO - - {"reqId":null,"status":-1,"msg":"JSON parse error: Cannot deserialize value of type `java.util.Date` from String \"a\": not a valid representation (error: Failed to parse Date value 'a': Unparseable date: \"a\"); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String \"a\": not a valid representation (error: Failed to parse Date value 'a': Unparseable date: \"a\")\n at [Source: (PushbackInputStream); line: 1, column: 127] (through reference chain: com.irsec.harbour.ship.data.dto.ManyRequestParams[\"datas\"]->java.util.ArrayList[0]->com.irsec.harbour.ship.data.dto.TicketCheckingRequestCondition[\"checkingTime\"])"}
+2019-07-11 10:46:13,002 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"第0行 没有设备编号"}
+2019-07-11 10:46:46,178 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"第0行 没有二维码信息"}
+2019-07-11 10:47:27,496 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"第1行 没有二维码信息"}
+2019-07-11 13:07:45,158 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:09:01,982 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:09:30,163 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:09:56,403 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:10:52,120 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:29:54,031 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:30:16,848 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 13:44:01,390 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 14:44:23,047 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 14:47:40,505 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"离线上传数据处理出错."}
+2019-07-11 14:52:25,060 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 14:52:59,533 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"离线上传数据处理出错."}
+2019-07-11 14:54:06,142 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}
+2019-07-11 14:57:40,640 - root - INFO - - {"reqId":"uuid32位","status":-1,"msg":"离线上传数据处理出错."}
+2019-07-11 15:01:58,553 - root - INFO - - {"reqId":"uuid32位","status":0,"msg":"OK"}

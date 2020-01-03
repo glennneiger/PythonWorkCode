@@ -1,0 +1,4 @@
+2019-11-08 14:26:59,348 - root - ERROR - Base - click_element_by_js - 86 - JS click element error:Message: document.querySelectorAll(...).click is not a function
+Stacktrace:
+    at anonymous (about:neterror?e=malformedURI&u=about%3Ablank%26utm_content%3Dfirstrun&c=&f=regular&d=%E6%AD%A4%20URL%20%E6%97%A0%E6%95%88%EF%BC%8C%E6%97%A0%E6%B3%95%E8%BD%BD%E5%85%A5%E3%80%82 line 69 > Function:1)
+    at handleEvaluateEvent (about:neterror?e=malformedURI&u=about%3Ablank%26utm_content%3Dfirstrun&c=&f=regular&d=%E6%AD%A4%20URL%20%E6%97%A0%E6%95%88%EF%BC%8C%E6%97%A0%E6%B3%95%E8%BD%BD%E5%85%A5%E3%80%82:69)

@@ -1,0 +1,71 @@
+# coding:utf-8
+# 3.11 旅客验票接口 api/v1/ticket/checking
+
+-
+ casetitle: 条形码数据正确时，传入正确参数能成功返回改旅客的信息
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+
+-
+ casetitle: 条形码数据错误时，不能校验旅客的信息
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"error111",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+-
+ casetitle: 传入前一天旅客的信息的条形码数据，不能校验该旅客信息
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+
+-
+ casetitle: 传入后一天旅客的信息的条形码数据，不能校验该旅客信息
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+
+-
+ casetitle: 验证reqId为空/空值，服务器能做出校验，校验旅客信息失败
+ body: {"reqId":"","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+
+-
+ casetitle: checkinId/空值，服务器能做出校验，校验旅客信息失败
+ body: {"reqId":"4be328c09eed11e99380dca266365d7c","data":
+  {"checkinId": "","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: 0
+
+-
+ casetitle: userBarcode/空值，服务器能做出校验，校验旅客信息失败
+ body: {"reqId":"","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": "No001"}}
+ expect: -1
+
+-
+ casetitle: checkingTime/空值，服务器能做出校验，校验旅客信息失败
+ body: {"reqId":"","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"","checkDeviceNo": "No001"}}
+ expect: -1
+
+-
+ casetitle: checkDeviceNo/空值，服务器能做出校验，校验旅客信息失败
+ body: {"reqId":"","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"2019-07-09 15:43:00","checkDeviceNo": ""}}
+ expect: -1
+
+-
+ casetitle: 验证checkingTime时间格式错误时，能做出校验，校验旅客信息失败
+ body: {"reqId":"","data":
+  {"checkinId": "4be328c09eed11e99380dca266365d7c","userBarcode":"000000000001",
+  "checkingTime":"aaaaasssss","checkDeviceNo": "No001"}}
+ expect: -1

@@ -1,0 +1,52 @@
+#ID = "id"
+#XPATH = "xpath"
+#LINK_TEXT = "link text"
+#PARTIAL_LINK_TEXT = "partial link text"
+#NAME = "name"
+#TAG_NAME = "tag name"
+#CLASS_NAME = "class name"
+#CSS_SELECTOR = "css selector"
+
+
+loginPage:
+   user_name: ("css selector","#tologinusernameinput")
+   password: ("css selector","#tologinform>div.passwdbg1>input[name='password']")
+   login: ("css selector","#tologinform>div.passwdbg1>div.gologin")
+   box_text: ("css selector","div.modal-content>div.modal-body")
+
+systemManage:
+   systemManage: ("css selector","#westnavtree_15_switch")
+   carried_manage: ("css selector", "#westnavtree_18_span")
+   add_carried_person: ("css selector","div[role='group'][class='funcbtngroup']>button:nth-child(1)")
+   input_carried_name: ("css selector","div.col-sm-7>input[name='carriername'][class='form-control']")
+   input_carried_english_name: ("css selector", "div.col-sm-7>input[name='carrierywname'][class='form-control']")
+   click_sure: ("css selector", "div.modal-content>div.modal-footer>button.frmdialogbtn.btn.btn-primary")
+
+scheduleManage:
+   scheduleManage: ("id","westnavtree_6_switch")
+   boatManage: ("id", "westnavtree_11_span")
+   addBoat: ("xpath", "//div[@class='funcbtngroup' and @role='group']/button[text()='新增泊位']")
+   boatName: ("xpath", "//input[@class='form-control' and @name='berthname']")
+   boatWeight: ("xpath", "//input[@class='form-control' and @name='berthweight']")
+   boatLenght: ("xpath", "//input[@class='form-control' and @name='berthlength']")
+   note1: ("css selector", "textarea.form-control.multipleline")
+   note2: ("css selector", "textarea.form-control[style='width:100%; height:200px;']")
+   sure: ("xpath", "//button[@data-loading-text='确定中']")
+   shipMange: ("id","westnavtree_10_span")
+   addShip: ("xpath", "//div[@class='funcbtngroup' and @role='group']/button[text()='新增船舶']")
+   shipNameZh: ("css selector", "input[name='shipnamezh']")
+   shipNameEn: ("css selector", "input[name='shipnameen']")
+   shipImo: ("css selector", "input[name='shipimo']")
+   shipCallSign: ("css selector", "form > div:nth-child(4) > div:nth-child(1) > div > input")
+   shipLength: ("css selector", "input[name='shiplength']")
+   shipWidth: ("css selector", "input[name='shipwidth']")
+   shipHeight: ("css selector", "input[name='shipheight']")
+   shipGrt: ("css selector", "input[name='shipgrt']")
+   shipNrt: ("css selector", "input[name='shipnrt']")
+   shipDwt: ("css selector", "input[name='shipdwt']")
+   shipExtreMedraft: ("css selector", "input[name='shipextremedraft']")
+   choose: ("css selector", "form > div:nth-child(8) > div:nth-child(1) > div > div > a > span")
+   chooseCompany: ("xpath", "//li[text()='A邮轮公司1']")
+   date: ("css selector", "input[name='riq']")
+   rightSure: ("css selector", "div[x-placement='top-start']>div:nth-child(2)>button")
+   outSure: ("css selector", "body > div.modal.fade.dialogtemplate.in > div > div.modal-content > div.modal-footer > button.frmdialogbtn.btn.btn-primary")

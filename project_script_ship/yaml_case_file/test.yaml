@@ -1,0 +1,107 @@
+# coding:utf-8
+# 旅客凭证打印接口 passenger/queryByPrinter
+
+-
+  api_name: 旅客凭证打印接口 passenger/queryByPrinter
+  casetitle: 能通过身份证号码查询到旅客信息
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "","idNumber":"500238199312134390","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 能通过护照号码查询到旅客信息
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 无旅客信息时，不能查询到旅客信息
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "77787878","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 能通过身份证号码和护照号同时查询该旅客信息
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"500238199312134390","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 查询旅客信息时护照号和身份证号不匹配时，不能查询到旅客信息
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"500238199312134391","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 在查询旅客信息时，不传入护照号和身份证号时，查询失败。，服务器正确响应
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: -1
+
+-
+  casetitle: 验证reqId为空/空值，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"","condition":
+  {"passportId": "passportId1","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+-
+  casetitle: 验证condition的json数据为空/空值时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  ""}
+  expect: -1
+
+-
+  casetitle: 验证passportId参数为长字段时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "1111144444444444444444444444444444444444444444444444444215445","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+-
+  casetitle: 验证passportId参数中有特殊字符时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"","condition":
+  {"passportId": "   11111____    ___kdjfjd___","idNumber":"","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+-
+  casetitle: 验证idNumber参数为长字段时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"500238199312134391fffffffffffffffffffffffffffff2222","sailDateSt":"2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+-
+  casetitle: 验证idNumber参数中有特殊字符时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"   5002381993121343---%%%,,   ", "sailDateSt": "2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+-
+  casetitle: 验证sailDateSt参数为空/空值时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"500238199312134390", "sailDateSt": ""
+  ,"sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+
+-
+  casetitle: 验证sailDateEnd参数为空/空值时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "77787878","idNumber":"500238199312134390", "sailDateSt": "2019-07-08 00:00:00","sailDateEnd": ""}}
+  expect: 0
+
+-
+  casetitle: 验证sailDateEnd参数日期格式错误时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "77787878","idNumber":"500238199312134390", "sailDateSt": "2019-07-08 00:00:00","sailDateEnd": "aaasd  --"}}
+  expect: -1
+
+-
+  casetitle: 验证sailDateSt>sailDateEnd时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "77787878","idNumber":"500238199312134390", "sailDateSt": "2019-07-08 00:00:00","sailDateEnd": "2019-07-06 00:00:00"}}
+  expect: 0
+-
+  casetitle: 验证查询旅客信息时，底库信息在1W条时，服务器响应时间<1s
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "77787878","idNumber":"500238199312134390", "sailDateSt": "2019-07-08 00:00:00","sailDateEnd": "2019-07-08 17:09:20"}}
+  expect: 0
+
+-
+  casetitle: 验证sailDateSt参数日期格式错误时，服务器能做出校验，查询旅客信息失败
+  body: {"reqId":"4be328c09eed11e99380dca266365d7c","condition":
+  {"passportId": "passportId1","idNumber":"500238199312134390", "sailDateSt": "aaaa555555555555555"
+  ,"sailDateEnd": "2019-07-08 00:00:00"}}
+  expect: -1
